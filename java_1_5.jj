@@ -61,7 +61,7 @@ import japa.parser.ast.type.*;
  * <p>This class was generated automatically by javacc, do not edit.</p>
  * @author Júlio Vilmar Gesser
  */
-final class ASTParser {
+public final class ASTParser {
 
     void reset(InputStream in, String encoding) {
         ReInit(in, encoding);
@@ -117,6 +117,10 @@ final class ASTParser {
     private List<Comment> getComments() {
         return token_source.getComments();
     }
+
+    public List<Token> getAllTokens() {
+        return token_source.getAllTokens();
+    }
     
     private void throwParseException(Token token, String message) throws ParseException {
         StringBuilder buf = new StringBuilder();
@@ -164,6 +168,7 @@ SKIP :
 
 TOKEN_MGR_DECLS :
 {
+    private List<Token> allTokens = new ArrayList<Token>();
     private List<Comment> comments;
     private final Stack<JavadocComment> javadocStack = new Stack<JavadocComment>();
     private JavadocComment lastJavadoc;
@@ -179,6 +184,10 @@ TOKEN_MGR_DECLS :
     List<Comment> getComments() {
         return comments;
     }
+
+    List<Token> getAllTokens() {
+        return allTokens;
+    }
     
     void clearComments() {
     	comments = null;
@@ -187,12 +196,14 @@ TOKEN_MGR_DECLS :
     }
 
     private void CommonTokenAction(Token token) {
+        allTokens.add(token);
         lastJavadoc = null;
-        if (token.specialToken != null) {
+	Token iter = token;
+        while (iter.specialToken != null) {
         	if(comments == null) {
         	    comments = new LinkedList<Comment>();
         	}
-            Token special = token.specialToken;
+            Token special = iter.specialToken;
             if(special.kind == JAVA_DOC_COMMENT) {
                 lastJavadoc = new JavadocComment(special.beginLine, special.beginColumn, special.endLine, special.endColumn, special.image.substring(3, special.image.length()-2));        	
                 comments.add(lastJavadoc);
@@ -203,6 +214,7 @@ TOKEN_MGR_DECLS :
                 BlockComment comment = new BlockComment(special.beginLine, special.beginColumn, special.endLine, special.endColumn, special.image.substring(2, special.image.length()-2));        	
                 comments.add(comment);
             }
+	    iter = iter.specialToken;
         }
     }
 }
