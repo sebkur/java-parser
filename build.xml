@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+
+<project name="Java 1.5 Parser" default="compile" basedir=".">
+	<property name="version" value="1.0" />
+	<property name="javacc.distribution" value="/usr/share/java" />
+
+	<property name="src" location="src" />
+	<property name="src-gen" location="src-gen" />
+	<property name="src-gen-fullpath" location="${src-gen}/japa/parser" />
+	<property name="build" location="bin" />
+	<property name="dist" location="dist" />
+
+	<target name="init">
+		<tstamp />
+		<mkdir dir="${src-gen-fullpath}" />
+		<mkdir dir="${build}" />
+		<mkdir dir="${dist}" />
+	</target>
+
+	<target name="compile" depends="init,generated-files" description="compile the source ">
+		<javac srcdir="${src}:${src-gen}" destdir="${build}" debug="on" debuglevel="lines,vars,source" includeantruntime="false">
+		</javac>
+	</target>
+
+	<target name="dist" depends="compile" description="generate the distribution">
+		<jar jarfile="${dist}/javaparser.jar" basedir="${build}">
+		</jar>
+	</target>
+
+	<target name="clean">
+		<delete dir="${src-gen}" />
+		<delete dir="${build}" />
+		<delete dir="${dist}" />
+	</target>
+
+	<target name="parser-files-init">
+		<uptodate property="parser.gen"
+				targetfile="java_1_5.jj">
+			<srcfiles dir="${src}" includes="japa/parser/ASTJavaParser.java"/>
+		</uptodate>
+	</target>
+
+	<target name="generated-files" depends="init,parser-files-init" if="parser.gen">
+		<javacc target="java_1_5.jj" javacchome="${javacc.distribution}"
+				outputdirectory="${src-gen-fullpath}" />
+	</target>
+</project>

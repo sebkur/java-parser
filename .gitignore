@@ -1,0 +1,7 @@
+*.swp
+bin
+bin/*
+dist
+dist/*
+src-gen
+src-gen/*
