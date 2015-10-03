@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 Júlio Vilmar Gesser.
+ * Copyright (C) 2007 Jï¿½lio Vilmar Gesser.
  * 
  * This file is part of Java 1.5 parser and Abstract Syntax Tree.
  *
@@ -19,15 +19,15 @@
 /*
  * Created on 22/11/2006
  */
-package japa.parser.ast.test;
+package de.topobyte.japa.parser.ast.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import japa.parser.ast.CompilationUnit;
-import japa.parser.ast.PackageDeclaration;
-import japa.parser.ast.expr.NameExpr;
-import japa.parser.ast.test.classes.DumperTestClass;
-import japa.parser.ast.test.classes.JavadocTestClass;
+import de.topobyte.japa.parser.ast.CompilationUnit;
+import de.topobyte.japa.parser.ast.PackageDeclaration;
+import de.topobyte.japa.parser.ast.expr.NameExpr;
+import de.topobyte.japa.parser.ast.test.classes.DumperTestClass;
+import de.topobyte.japa.parser.ast.test.classes.JavadocTestClass;
 
 import org.junit.Test;
 

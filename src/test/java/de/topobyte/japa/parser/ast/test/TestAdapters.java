@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2008 Júlio Vilmar Gesser.
+ * Copyright (C) 2008 Jï¿½lio Vilmar Gesser.
  * 
  * This file is part of Java 1.5 parser and Abstract Syntax Tree.
  *
@@ -19,17 +19,17 @@
 /*
  * Created on 11/06/2008
  */
-package japa.parser.ast.test;
+package de.topobyte.japa.parser.ast.test;
 
-import japa.parser.ParseException;
-import japa.parser.ast.CompilationUnit;
-import japa.parser.ast.test.classes.DumperTestClass;
-import japa.parser.ast.test.classes.JavadocTestClass;
-import japa.parser.ast.visitor.GenericVisitor;
-import japa.parser.ast.visitor.GenericVisitorAdapter;
-import japa.parser.ast.visitor.ModifierVisitorAdapter;
-import japa.parser.ast.visitor.VoidVisitor;
-import japa.parser.ast.visitor.VoidVisitorAdapter;
+import de.topobyte.japa.parser.ParseException;
+import de.topobyte.japa.parser.ast.CompilationUnit;
+import de.topobyte.japa.parser.ast.test.classes.DumperTestClass;
+import de.topobyte.japa.parser.ast.test.classes.JavadocTestClass;
+import de.topobyte.japa.parser.ast.visitor.GenericVisitor;
+import de.topobyte.japa.parser.ast.visitor.GenericVisitorAdapter;
+import de.topobyte.japa.parser.ast.visitor.ModifierVisitorAdapter;
+import de.topobyte.japa.parser.ast.visitor.VoidVisitor;
+import de.topobyte.japa.parser.ast.visitor.VoidVisitorAdapter;
 
 import org.junit.Test;
 

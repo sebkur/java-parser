@@ -1,7 +1,7 @@
 /*
  * Created on 11/01/2009
  */
-package japa.parser.ast.test;
+package de.topobyte.japa.parser.ast.test;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

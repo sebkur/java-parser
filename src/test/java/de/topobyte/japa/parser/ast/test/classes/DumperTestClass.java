@@ -1,8 +1,8 @@
-package japa.parser.ast.test.classes;
+package de.topobyte.japa.parser.ast.test.classes;
 
-import japa.parser.JavaParser;
-import japa.parser.ParseException;
-import japa.parser.ast.CompilationUnit;
+import de.topobyte.japa.parser.JavaParser;
+import de.topobyte.japa.parser.ParseException;
+import de.topobyte.japa.parser.ast.CompilationUnit;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
@@ -353,11 +353,12 @@ public class DumperTestClass<T extends List<int[]>, X> extends Base implements S
         @Deprecated
         int[] valueI() default { 1, 2 };
 
-        AnnotationTest valueA1() default @AnnotationTest;
+        // This does not compile properly
+        /*AnnotationTest valueA1() default @AnnotationTest;
 
         AnnotationTest valueA2() default @AnnotationTest("qwe");
 
-        AnnotationTest valueA3() default @AnnotationTest(value = "qwe", valueI = { 1 });
+        AnnotationTest valueA3() default @AnnotationTest(value = "qwe", valueI = { 1 });*/
     }
 
     ;

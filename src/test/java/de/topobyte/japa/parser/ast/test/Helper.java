@@ -1,11 +1,11 @@
 /*
  * Created on 30/06/2008
  */
-package japa.parser.ast.test;
+package de.topobyte.japa.parser.ast.test;
 
-import japa.parser.JavaParser;
-import japa.parser.ParseException;
-import japa.parser.ast.CompilationUnit;
+import de.topobyte.japa.parser.JavaParser;
+import de.topobyte.japa.parser.ParseException;
+import de.topobyte.japa.parser.ast.CompilationUnit;
 
 import java.io.BufferedReader;
 import java.io.File;
