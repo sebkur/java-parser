@@ -1,7 +1,7 @@
-*.swp
 bin
-bin/*
-dist
-dist/*
-src-gen
-src-gen/*
+build
+.gradle
+.project
+.classpath
+.settings
+*.swp
